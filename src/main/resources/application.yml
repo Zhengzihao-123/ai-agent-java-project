@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ai-agent-system
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ai_agent_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  sql:
+    init:
+      mode: never
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+# ChatAnywhere 免费GPT API（你现在用的这个）
+openai:
+  api-key: sk-JglB2RFMpLlt4N3qpnzJuqzzf7Lx8IovgHAsdNjBPtJtoBnY
+  base-url: https://api.chatanywhere.tech/v1
+  model: gpt-4o-mini
+  max-tokens: 1500
+  temperature: 0.7
