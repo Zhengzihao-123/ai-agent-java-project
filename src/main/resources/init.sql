@@ -43,6 +43,8 @@ CREATE TABLE doc_chunk (
     id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '分块ID',
     doc_id BIGINT NOT NULL COMMENT '所属文档ID',
     chunk_text TEXT NOT NULL COMMENT '分块文本内容',
+    chunk_index INT DEFAULT 0 COMMENT '分块索引',
+    total_chunks INT DEFAULT 0 COMMENT '总分块数',
     vector BLOB COMMENT '向量数据（简化存储）',
     create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     FOREIGN KEY (doc_id) REFERENCES knowledge_doc(id)
@@ -52,6 +54,7 @@ CREATE TABLE doc_chunk (
 CREATE TABLE chat_history (
     id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '聊天ID',
     user_id BIGINT NOT NULL COMMENT '用户ID',
+    conversation_id VARCHAR(100) NOT NULL DEFAULT 'default' COMMENT '会话ID',
     agent_role VARCHAR(50) NOT NULL COMMENT '智能体角色：course/training/cert/competition',
     user_message TEXT NOT NULL COMMENT '用户消息',
     ai_reply TEXT NOT NULL COMMENT 'AI回复',

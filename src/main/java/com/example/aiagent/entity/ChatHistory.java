@@ -10,6 +10,7 @@ public class ChatHistory {
     @TableId(type = IdType.AUTO)
     private Long id;
     private Long userId;
+    private String conversationId;
     private String agentRole;
     private String userMessage;
     private String aiReply;
@@ -29,6 +30,14 @@ public class ChatHistory {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getConversationId() {
+        return conversationId;
+    }
+
+    public void setConversationId(String conversationId) {
+        this.conversationId = conversationId;
     }
 
     public String getAgentRole() {

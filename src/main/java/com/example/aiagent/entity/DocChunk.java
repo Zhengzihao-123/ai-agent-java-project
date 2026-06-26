@@ -11,6 +11,8 @@ public class DocChunk {
     private Long id;
     private Long docId;
     private String chunkText;
+    private Integer chunkIndex;
+    private Integer totalChunks;
     private byte[] vector;
     private LocalDateTime createTime;
 
@@ -36,6 +38,22 @@ public class DocChunk {
 
     public void setChunkText(String chunkText) {
         this.chunkText = chunkText;
+    }
+
+    public Integer getChunkIndex() {
+        return chunkIndex;
+    }
+
+    public void setChunkIndex(Integer chunkIndex) {
+        this.chunkIndex = chunkIndex;
+    }
+
+    public Integer getTotalChunks() {
+        return totalChunks;
+    }
+
+    public void setTotalChunks(Integer totalChunks) {
+        this.totalChunks = totalChunks;
     }
 
     public byte[] getVector() {

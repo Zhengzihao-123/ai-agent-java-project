@@ -38,4 +38,14 @@ public class ChatController {
         return Result.success(history);
     }
 
+    @PostMapping("/send-with-rag")
+    public Result<Map<String, Object>> sendMessageWithRAG(@RequestBody Map<String, Object> params) {
+        Long userId = Long.parseLong(params.get("userId").toString());
+        String conversationId = (String) params.get("conversationId");
+        String agentRole = (String) params.get("agentRole");
+        String message = (String) params.get("message");
+        Map<String, Object> result = chatHistoryService.sendMessageWithRAG(userId, conversationId, agentRole, message);
+        return Result.success(result);
+    }
+
 }
